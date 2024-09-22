@@ -4,11 +4,15 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
+	db "github.com/mshahulpm/todo-golang/database"
 	"github.com/mshahulpm/todo-golang/modules/todo"
 	"github.com/mshahulpm/todo-golang/modules/user"
 )
 
 func main() {
+
+	db.InitDatabase()
+	defer db.DB.Close()
 
 	app := fiber.New()
 
